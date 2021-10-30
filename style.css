@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.background {
+}
+
+.dino {
+  width: 60px;
+  height: 60px;
+  background-color: aquamarine;
+  position: absolute;
+  bottom: 0;
+}
