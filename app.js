@@ -1,9 +1,9 @@
 const dino = document.querySelector('.dino')
-
+let dinoIsJumping = false
 
 const handleKeyUp = event => {
   // https://keycode.info/
-  if(event.keyCode === 32) {
+  if(event.keyCode === 32 && !dinoIsJumping) {
     jump()
   }
   
@@ -21,6 +21,7 @@ const jump = () => {
       let desceDoPulo = setInterval(() => {
         if(dinoPosition <= 0){
           clearInterval(desceDoPulo)
+          dinoIsJumping = false
         } else {
           dinoPosition -= 20
           dino.style.bottom = `${dinoPosition}px`
@@ -30,6 +31,7 @@ const jump = () => {
       // subindo
       dinoPosition += 20
       dino.style.bottom = `${dinoPosition}px`
+      dinoIsJumping = true
     }
   }, 20)
 }
