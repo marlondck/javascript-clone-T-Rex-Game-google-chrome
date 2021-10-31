@@ -2,6 +2,7 @@ const dino = document.querySelector('.dino')
 const background = document.querySelector('.background')
 
 let dinoIsJumping = false
+let isGameOver = false;
 let dinoPosition = 0;
 
 const handleKeyUp = event => {
@@ -13,8 +14,6 @@ const handleKeyUp = event => {
 }
 
 const jump = () => {
-  
-  
   // set interval serve para que execute o codigo em um determinado perio de tempo
   let sobePulando = setInterval(() => {
     if(dinoPosition >= 150) {
@@ -43,7 +42,8 @@ const createCactus = () => {
   const cactus = document.createElement('div')
   let postionCactus = 1000
   let randomTime = Math.random() * 6500
-  console.log(randomTime)
+
+  if (isGameOver) return;
 
   cactus.classList.add('cactus')
   cactus.style.left = `${postionCactus}px`
@@ -55,7 +55,12 @@ const createCactus = () => {
       background.removeChild(cactus);
       
     } 
-    
+    // colisao dos objetos  
+    else if (postionCactus > 0 && postionCactus < 60 && dinoPosition < 10 ) {
+      clearInterval(animaCactus)
+      isGameOver = true;
+      document.body.innerHTML = '<h1 class="game-over">Fim de jogo</h1>';
+    }
     else {
       postionCactus -= 10
       cactus.style.left = `${postionCactus}px`
