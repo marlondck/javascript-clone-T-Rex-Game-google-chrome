@@ -4,13 +4,18 @@
   box-sizing: border-box;
 }
 
-.background {
+.cactus {
+  background: url("./assets/cactus.png");
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 60px;
 }
 
 .dino {
   width: 60px;
   height: 60px;
-  background-color: aquamarine;
+  background: url("./assets/dino.png");
   position: absolute;
   bottom: 0;
   left: 80px;
